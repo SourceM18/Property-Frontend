@@ -1,0 +1,48 @@
+@import '../../vars';
+
+.mainWrapper {
+	height: 665px;
+	background-position: center;
+	background-size: cover;
+	background-image: linear-gradient(black, black);
+	margin-top: 75px;
+	}
+.mainContainer {
+	display: flex;
+	flex-direction: column;	
+	justify-content: center;	
+	color: $primary;
+	text-align: center;
+	padding-top: 140px;
+}
+.mainHeading {
+	font-size: 38px;
+	font-weight: bold;
+	line-height: 140px;
+	letter-spacing: -1.5px;
+	margin-bottom: 20px;
+}
+.mainText {
+	font-size: 38px;
+	line-height: 52px;
+}
+
+
+@media (max-width: 575.98px) {
+	.mainWrapper {
+		height: calc(100vh - 100px);
+		margin-top: 56px;
+	}
+	.mainContainer {
+		
+		padding-top: 40%;
+	}
+	.mainHeading {
+		font-size: 24px;
+		line-height: 1.2;
+	}
+	.mainText {
+		font-size: 24px;
+		line-height: 1.4;
+	}
+}

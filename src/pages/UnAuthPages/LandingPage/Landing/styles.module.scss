@@ -1,0 +1,80 @@
+@import 'vars';
+
+/* sarala-regular - latin */
+@font-face {
+	font-family: 'Sarala';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/sarala-v5-latin-regular.eot'); /* IE9 Compat Modes */
+	src: local(''), url('../fonts/sarala-v5-latin-regular.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */ url('../fonts/sarala-v5-latin-regular.woff2') format('woff2'),
+		/* Super Modern Browsers */ url('../fonts/sarala-v5-latin-regular.woff') format('woff'),
+		/* Modern Browsers */ url('../fonts/sarala-v5-latin-regular.ttf') format('truetype'),
+		/* Safari, Android, iOS */ url('../fonts/sarala-v5-latin-regular.svg#Sarala') format('svg'); /* Legacy iOS */
+}
+/* sarala-700 - latin */
+@font-face {
+	font-family: 'Sarala';
+	font-style: normal;
+	font-weight: 700;
+	src: url('../fonts/sarala-v5-latin-700.eot'); /* IE9 Compat Modes */
+	src: local(''), url('../fonts/sarala-v5-latin-700.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */ url('../fonts/sarala-v5-latin-700.woff2') format('woff2'),
+		/* Super Modern Browsers */ url('../fonts/sarala-v5-latin-700.woff') format('woff'),
+		/* Modern Browsers */ url('../fonts/sarala-v5-latin-700.ttf') format('truetype'),
+		/* Safari, Android, iOS */ url('../fonts/sarala-v5-latin-700.svg#Sarala') format('svg'); /* Legacy iOS */
+}
+.landingGrid {
+	height: 100%;
+	overflow: auto;
+	font-family: 'Sarala', sans-serif;
+	scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.contentBlock {
+	overflow: auto;
+	&::-webkit-scrollbar {
+		width: 0 !important;
+	}
+	scroll-behavior: smooth;
+}
+.landingContainer {
+	max-width: 1280px;
+	padding: 110px 50px 0;
+	margin: auto;
+}
+.landingHeading {
+	font-size: 50px;
+	text-align: center;
+	color: $primary;
+	letter-spacing: -3px;
+	font-weight: bold;
+	margin-bottom: 60px;
+}
+.landingTitle {
+	font-size: 25px;
+	font-weight: bold;
+	color: $primary;
+	text-align: center;
+}
+
+@media (max-width: 575.98px) {
+	.landingContainer {
+		padding: 70px 20px 0;
+	}
+	.landingHeading {
+		font-size: 32px;
+		margin-bottom: 20px;
+	}
+	.landingTitle {
+		font-size: 22px;
+	}
+}

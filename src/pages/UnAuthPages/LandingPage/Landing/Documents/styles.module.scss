@@ -1,0 +1,185 @@
+@import 'src/styles/mixins';
+
+.document {
+  &Section{
+    margin-bottom: 30px;
+  }
+  &Container {
+    max-width: 1000px;
+    text-align: justify;
+    font-size: 13px;
+    margin: 0 auto;
+    line-height: 1.2;
+
+    @media (max-width: $mobile) {
+      font-size: inherit;
+    }
+
+    h4 {
+      font-weight: 700;
+      margin-bottom: 5px;
+      font-size: 15px;
+
+      span{
+        font-weight: 700;
+      }
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: #10069F;
+      text-decoration: underline;
+    }
+
+    ul {
+      margin: 10px 0 0 25px;
+
+      li {
+        &:not(:last-child) {
+          margin-bottom: 5px;
+        }
+
+        .documentNumber {
+          min-width: 30px;
+        }
+        .documentAbc{
+          min-width: 20px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &Italic {
+    font-style: italic;
+  }
+
+  &Decimal {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1;
+  }
+
+  &Bold {
+    font-weight: 700;
+  }
+
+  &Number {
+    min-width: 25px;
+    display: inline-block;
+    padding-right: 4px;
+  }
+
+  &Underline{
+    text-decoration: underline;
+  }
+
+  &Table{
+    margin-bottom: 25px;
+    h4{
+      text-align: center;
+      font-size: 14px;
+    }
+    table, th, td {
+      border:1px solid black;
+    }
+    th{
+      font-weight: 700;
+      text-align: center;
+      &:nth-child(2){
+        width: 42%;
+      }
+    }
+    th, td {
+      padding: 10px;
+    }
+    p{
+      margin-bottom: 7px;
+    }
+    td{
+      text-align: justify;
+    }
+    &List {
+      p {
+        text-indent: 1.5em;
+        position: relative;
+        &:before{
+          content: '';
+          position: absolute;
+          left: -20px;
+        }
+        &.zero{
+          text-indent: 0em;
+        }
+
+        &.a{
+          &:before {
+            content: '(a)';
+          }
+        }
+
+        &.b{
+          &:before {
+            content: '(b)';
+          }
+        }
+
+        &.c{
+          &:before {
+            content: '(c)';
+          }
+        }
+
+        &.d{
+          &:before {
+            content: '(d)';
+          }
+        }
+
+        &.e{
+          &:before {
+            content: '(e)';
+          }
+        }
+
+        &.f{
+          &:before {
+            content: '(f)';
+          }
+        }
+
+        &.g{
+          &:before {
+            content: '(g)';
+          }
+        }
+
+        &.h{
+          &:before {
+            content: '(h)';
+          }
+        }
+      }
+    }
+
+    ul{
+      margin: 0;
+      li{
+        margin: 0;
+        p {
+          text-indent: 0.6em;
+          position: relative;
+          &:before{
+            content: '•';
+            position: absolute;
+            left: -8px;
+          }
+        }
+      }
+
+    }
+  }
+}

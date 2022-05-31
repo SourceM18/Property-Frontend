@@ -1,0 +1,43 @@
+@import '../../vars';
+.servicesItemContainer {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	align-items: center;
+	grid-column-gap: 30px;
+}
+.servicesItemIco {
+	width: 66px;
+	height: auto;
+}
+.servicesItemText {
+	font-size: 22px;
+	color: $secondary;
+	line-height: 1.4;
+	white-space: pre-line;
+	margin: 4px 0;
+	position: relative;	
+	width: fit-content;
+	
+}
+
+@media (max-width: 575.98px) {
+	.servicesItemContainer {
+		grid-gap: 20px;
+	}
+	.servicesItemIco {
+		width: 50px;		
+	}
+	.servicesItemText {
+		font-size: 4.1vw;
+    letter-spacing: -0.3px;
+	}
+}
+@media (max-width: 320.98px) {
+	.servicesItemContainer {
+		grid-template-columns: 1fr;
+		justify-items: center;
+		text-align: center;
+		grid-row-gap: 10px;
+		margin-bottom: 10px;
+	}
+}

@@ -1,0 +1,12 @@
+@import '../vars';
+
+.aboutContent {
+	display: grid;
+	grid-gap: 30px;
+}
+
+@media (max-width: 575.98px) {
+	.aboutContent {
+		display: block;
+	}
+}

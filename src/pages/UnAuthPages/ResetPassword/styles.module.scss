@@ -1,0 +1,28 @@
+@import 'src/styles/mixins';
+
+.reset-pass {
+  padding: 40px;
+
+  & > .title {
+    text-align: center;
+    font-size: 36px;
+  }
+
+  & > .box {
+    margin: auto;
+    text-align: center;
+
+    & > .input {
+      margin: 20px auto;
+      border-radius: 5px;
+      border: 1px solid grey;
+      padding: 5px 10px;
+      @extend %big-input;
+    }
+
+    & > .button {
+      @extend %btn;
+      padding: 10px;
+    }
+  }
+}

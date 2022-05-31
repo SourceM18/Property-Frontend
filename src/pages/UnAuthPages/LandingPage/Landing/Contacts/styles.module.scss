@@ -1,0 +1,36 @@
+@import '../vars';
+
+.landingContacts {
+	display: grid;
+	align-items: center;
+	grid-template-columns: repeat(3, max-content);
+	grid-gap: 25px;
+	justify-content: center;
+	padding: 25px 0 20px;
+	a {
+		cursor: pointer;
+		img {
+			height: 45px;
+			width: auto;
+		}
+	}
+}
+.contactsContent {
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 4px;
+		background: linear-gradient(90deg, rgba(187, 146, 33, 1) 0%, rgba(244, 217, 123, 1) 50%, rgba(187, 146, 33, 1) 100%);
+	}
+}
+
+@media (max-width: 575.98px) {
+	.landingContacts {
+		.mail {
+			font-size: 20px;
+			letter-spacing: -1px;
+		}
+	}
+}

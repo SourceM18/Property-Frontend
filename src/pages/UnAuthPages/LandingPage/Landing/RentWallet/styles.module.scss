@@ -1,0 +1,71 @@
+@import '../vars';
+
+.rentPlansWrapper {
+	padding: 110px 0 0;
+	margin: auto;
+}
+.rentPlansBG {
+	background-color: $primary;
+	padding-bottom: 20px;
+}
+.rentPlansContainer {
+	max-width: fit-content;
+	margin: auto;
+}
+.rentHeadingList {
+	list-style: none;
+	font-size: 25px;
+	line-height: 1.9;
+	padding: 50px;
+
+	li {
+		color: $white;
+		display: block;
+		img {
+			width: 20px;			
+			display: inline-block;
+			margin-right: 10px;			
+		}
+	}
+}
+.rentPlans {
+	display: flex;
+	width: fit-content;
+	margin: auto;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	& div:nth-child(3) {
+		position: relative;
+		&::before {
+			content: '';
+			display: block;
+			width: 1px;
+			height: 96%;
+			background-color: #cecece;
+			position: absolute;
+			top: 2%;
+			right: 0;
+		}
+	}
+}
+
+@media (max-width: 575.98px) {
+	.rentPlansWrapper {
+		padding: 70px 0 0;
+	}
+
+	.rentPlans {
+		display: block;
+		width: 100%;
+	}
+	.rentHeadingList {
+		max-width: 300px;
+		margin: auto;
+		font-size: 4.10vw;
+		line-height: 1.7;
+		padding: 20px 0 10px;
+	}
+	.rentWalletHeader {
+		margin-bottom: 30px;
+	}
+}
