@@ -1,0 +1,230 @@
+@import 'src/styles/mixins';
+
+.icon-container {
+  position: relative;
+  height: 175px;
+
+  & > .file__input {
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+  }
+
+  & > .photo {
+    display: flex;
+    width: 175px;
+    height: 175px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    &.property {
+      @media (max-width: $mobile) {
+        width: 103px;
+        height: 103px;
+      }
+    }
+
+    &.plug {
+      background: var(--avatar-color);
+      padding: 34px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--avatar-color);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      cursor: auto;
+    }
+
+    &:hover {
+      &:before {
+        opacity: 0.9;
+        cursor: pointer;
+        pointer-events: all;
+      }
+
+      & > .text {
+        opacity: 1;
+      }
+    }
+
+    & > .image {
+      width: 100%;
+      @media (max-width: $mobile) {
+        &.text-mobile {
+          display: none;
+        }
+      }
+
+    }
+
+    & > .text {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--black-color);
+      font-weight: $font-normal;
+      font-size: 14px;
+      line-height: 28px;
+      white-space: nowrap;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      span {
+        color: #000000;
+        margin-left: 4px;
+      }
+    }
+  }
+}
+
+.account-photo {
+  height: 250px;
+
+  & > .photo {
+    display: flex;
+    width: 250px;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width: $mobile) {
+      width: 120px;
+      height: 120px;
+      &:before {
+        opacity: 0.9;
+      }
+    }
+
+    &.plug {
+      background: var(--avatar-color);
+      padding: 40px;
+
+      @media (max-width: $mobile) {
+        width: 150px;
+        height: 150px;
+      }
+
+      & > .image {
+        padding: 10px;
+      }
+    }
+
+    & > .text {
+      font-size: 30px;
+      line-height: 34px;
+      white-space: nowrap;
+      cursor: pointer;
+
+      @media (max-width: $mobile) {
+        font-size: 10px;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.small-card {
+  height: 100px;
+
+  & > .photo {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+      @media (max-width: $mobile) {
+        opacity: 0 !important;
+      }
+    }
+
+    &.plug {
+      background: var(--avatar-color);
+      padding: 20px;
+
+      &:before {
+        @media (max-width: $mobile) {
+          opacity: 1;
+        }
+      }
+    }
+
+    & > .text {
+      font-size: 14px;
+      line-height: 20px;
+      white-space: nowrap;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      @media (max-width: $mobile) {
+        &-mobile {
+          opacity: 1;
+
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .icon-container {
+    height: 120px;
+    & > .photo {
+
+      &.photo-edit-mobile {
+        .image {
+          opacity: 0.3;
+        }
+
+        .text {
+          opacity: 1;
+          display: flex;
+          flex-direction: column;
+
+          span {
+            font-size: 8px;
+            line-height: 1;
+            margin-left: 0;
+            margin-top: 3px
+          }
+        }
+      }
+
+      &.plug {
+        padding: 10px;
+      }
+
+      &.new-tenant {
+        width: 57px;
+        height: 57px;
+      }
+
+      & > .text {
+        font-size: 12px;
+      }
+    }
+  }
+}

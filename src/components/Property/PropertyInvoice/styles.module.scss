@@ -1,0 +1,61 @@
+@import 'src/styles/mixins';
+
+.invoice {
+  display: grid;
+  grid-template-columns: 1fr 1fr 4fr;
+  border-bottom: 1px solid var(--line-color);
+  text-align: center;
+  line-height: 60px;
+  font-size: 20px;
+
+  &.active {
+    background: green;
+  }
+
+  & > .title {
+    cursor: pointer;
+    &.green {
+      color: var(--green-color);
+    }
+    &.orange {
+      color: var(--orange-color);
+    }
+    &.red {
+      color: var(--red-color);
+    }
+  }
+
+  & > .partitions {
+
+    & > .partition {
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      border-bottom: 1px solid var(--line-color);
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+@media (max-width: $tablet) {
+  .invoice {
+    font-size: 14px;
+    line-height: 16px;
+    min-height: 47px;
+    align-items: center;
+    padding: 5px 0;
+  }
+}
+@media (max-width: $mobile) {
+  .invoice {
+    font-size: 8px;
+    line-height: 9px;
+    min-height: 27px;
+
+  }
+}

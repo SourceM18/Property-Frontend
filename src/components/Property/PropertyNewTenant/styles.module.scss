@@ -1,0 +1,150 @@
+@import 'src/styles/mixins';
+
+.tenancy {
+	background: var(--card-color);
+	height: calc(100vh - 510px);
+	padding: 0 25px 25px;
+
+	& > .btn-container {
+		display: flex;
+		height: 70px;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid var(--bold-line-color);
+		border-top: 1px solid var(--bold-line-color);
+
+		& > .button {
+			display: grid;
+			grid-column-gap: 5px;
+			grid-column: max-content;
+			grid-template-areas: 'icon text';
+			background: var(--card-color);
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			width: 200px;
+			cursor: pointer;
+
+			& > .icon {
+				width: 30px;
+				height: 30px;
+			}
+
+			svg path {
+				fill: var(--text-color);
+			}
+
+			& > .text {
+				font-size: 20px;
+				color: var(--text-color);
+			}
+
+			&.active {
+				svg path {
+					fill: var(--active-color);
+				}
+
+				& > .text {
+					color: var(--active-color);
+				}
+			}
+		}
+	}
+
+	& > .new-tenant-card {
+		height: calc(100vh - 610px);
+		border-bottom: 1px solid var(--bold-line-color);
+		display: grid;
+		grid-template-areas: 'image info' 'button button';
+		grid-template-columns: 175px 1fr;
+		grid-template-rows: 175px 50px;
+		grid-gap: 25px;
+		padding: 25px 0;
+
+		& > .image-container {
+			grid-area: image;
+		}
+
+		& > .info {
+			grid-area: info;
+
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 50px 50px;
+			grid-gap: 20px;
+
+			& > .container {
+				padding: 15px 0;
+
+				& > .input {
+					@extend %input;
+				}
+			}
+		}
+
+		& > .save {
+			grid-area: button;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+
+			& > .button {
+				@extend %btn;
+			}
+		}
+	}
+}
+@media (max-width: $tablet) {
+	.tenancy {
+		& > .new-tenant-card {
+			height: fit-content;
+			& > .info {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+}
+@media (max-width: $mobile) {
+	.tenancy {
+		height: 260px;
+		padding: 0 8px 8px;
+		& > .new-tenant-card {
+			grid-template-columns: max-content 1fr;
+			grid-template-rows: max-content max-content;
+			grid-column-gap: 9px;
+			border-bottom: none;
+			padding-bottom: 0;
+			& > .info {
+				grid-template-rows: max-content;
+				grid-gap: 10px;
+				& > .container {
+					padding: 0;
+					& > .input {
+						font-size: 8px;
+						line-height: 9px;
+						display: flex;
+						flex-direction: column-reverse;
+						label {
+							position: relative;
+							font-size: 6px !important;
+							line-height: 7px;
+							top: 0 !important;
+							margin-bottom: 5px;
+						}
+						& > input {
+							min-width: unset;
+							width: 100%;
+						}
+					}
+				}
+			}
+			& > .save {
+				& > .button {
+					font-size: 10px;
+					line-height: 12px;
+				}
+			}
+		}
+	}
+}

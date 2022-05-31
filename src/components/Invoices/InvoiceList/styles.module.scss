@@ -1,0 +1,34 @@
+@import 'src/styles/mixins';
+
+.list-container {
+  background: var(--card-color);
+  height: calc(100vh - 250px);
+  padding: 0 10px 0 25px;
+  right: 10px;
+
+  @media (max-width: $mobile) {
+    padding: 0 12px;
+    height: auto;
+  }
+
+  .invoice-list {
+    overflow-y: auto;
+    padding-right: 15px;
+    height: calc(100vh - 275px);
+    border-bottom: 1px solid var(--bold-line-color);
+
+    @media (max-width: $mobile) {
+      padding-right: 0;
+      height: auto;
+      min-height: 100px;
+    }
+  }
+}
+
+.transaction-invoices {
+  height: calc(100vh - 470px);
+
+  .invoice-list {
+    height: calc(100vh - 500px);
+  }
+}

@@ -1,0 +1,69 @@
+@import 'src/styles/mixins';
+
+.confirmation-modal {
+	padding: 50px 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+
+	& > .warning {
+		font-size: 30px;
+		line-height: 42px;
+		text-align: center;
+		color: #900601;
+	}
+
+	& > .title {
+		font-size: 36px;
+		line-height: 42px;
+		text-align: center;
+	}
+
+	& > .buttons {
+		margin-top: 52px;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+
+		& > .btn {
+			@extend %btn;
+			@extend %hover;
+			width: 153px;
+			height: 51px;
+		}
+	}
+}
+
+.content{
+	height: 228px !important;
+}
+
+@media (max-width: $tablet) {
+	.confirmation-modal {
+		& > .title {
+			font-size: 30px;
+			line-height: 34px;
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	.confirmation-modal {
+		& > .title {
+			font-size: 20px;
+			line-height: 22px;
+		}
+	}
+
+	.buttons {
+		margin-top: 32px;
+
+		& > .btn {
+			width: 103px;
+			height: 40px;
+			font-size: 20px;
+			line-height: 22px;
+		}
+	}
+}

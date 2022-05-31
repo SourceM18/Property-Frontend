@@ -1,0 +1,24 @@
+@import 'src/styles/mixins';
+
+.list-container {
+	background: var(--card-color);
+	padding: 0 25px 25px 25px;
+	overflow: auto;
+	height: 100%;
+	position: relative;
+
+	.payment-list {
+		overflow-y: auto;
+		border-bottom: 1px solid var(--bold-line-color);
+		height: 100%;
+	}
+}
+@media (max-width: $mobile) {
+	.list-container {
+		padding: 0 15px;
+
+		.payment-list {
+			padding-right: 0px;
+		}
+	}
+}

@@ -1,0 +1,123 @@
+@import 'src/styles/mixins';
+
+.property {
+	width: 100%;
+	padding: 25px;
+	background: var(--card-color);
+	display: grid;
+	grid-template-areas: 'icon info' 'buttons buttons';
+	grid-template-columns: 175px 1fr;
+	grid-gap: 25px;
+
+	& > .photo-edit {
+		grid-area: photo;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 175px;
+		width: 175px;
+
+		&.plug {
+			background: var(--avatar-color);
+			padding: 34px;
+		}
+
+		& > .image {
+			height: 175px;
+			width: 175px;
+		}
+	}
+
+	.information {
+		grid-area: info;
+
+		& > .title-container-wrapper{
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.title-container {
+			margin-top: 17px;
+			margin-bottom: 15px;
+			display: flex;
+			align-items: baseline;
+			width: 50%;
+
+			& > .title__input {
+				@extend %input;
+				color: var(--passive-color);
+				width: calc(100% - 30px);
+				max-width: max-content;
+			}
+		}
+
+		& > .create__btn {
+			grid-area: done;
+			@extend %btn;
+			display: flex;
+			margin-left: auto;
+
+			&:not(:disabled) {
+				@extend %hover;
+			}
+		}
+	}
+}
+@media (max-width: $tablet) {
+	.property {
+		grid-template-areas: 'icon info';
+		min-height: unset;
+
+		.information {
+			& > .create__btn {
+				font-weight: 300;
+				font-size: 18px;
+				line-height: 21px;
+			}
+		}
+	}
+}
+@media (max-width: $mobile) {
+	.property {
+		padding: 10px;
+		grid-template-columns: max-content 1fr;
+		grid-gap: 8px;
+
+		.information {
+			height: fit-content;
+
+			.title-container {
+				margin-top: 0;
+				margin-bottom: 0;
+				width: 100%;
+
+				& > .title__input {
+					width: 100%;
+					display: flex;
+					flex-direction: column-reverse;
+					margin-bottom: 10px;
+					& > input {
+						min-width: unset;
+						width: 100%;
+						font-weight: 300;
+						font-size: 10px;
+						line-height: 12px;
+					}
+					& > label {
+						font-size: 10px !important;
+						line-height: 12px;
+						top: 0 !important;
+						position: relative;
+						margin-bottom: 10px;
+					}
+				}
+			}
+
+			& > .create__btn {
+				font-size: 12px;
+				line-height: 14px;
+				margin-top: 10px;
+			}
+		}
+	}
+}

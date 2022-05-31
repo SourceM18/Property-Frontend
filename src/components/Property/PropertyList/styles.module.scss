@@ -1,0 +1,9 @@
+@import 'src/styles/mixins';
+
+.properties {
+  display: grid;
+  grid-row-gap: 20px;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+}
+

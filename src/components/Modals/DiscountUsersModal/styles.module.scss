@@ -1,0 +1,33 @@
+@import 'src/styles/mixins';
+
+.users-modal {
+  padding: 55px;
+
+  & > .users-list {
+    padding: 0 15px;
+    height: 350px;
+    overflow-y: auto;
+
+    & > .users-item {
+      border-top: 1px solid var(--line-color);
+      height: 60px;
+      padding: 15px;
+
+      & > .name {
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      & > .email {
+        margin-top: 5px;
+      }
+
+      &.active {
+        & > .name, & > .email {
+          color: var(--active-color);
+        }
+      }
+    }
+  }
+}
+

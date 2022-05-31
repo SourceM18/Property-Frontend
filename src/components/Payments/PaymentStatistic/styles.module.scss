@@ -1,0 +1,36 @@
+@import 'src/styles/mixins';
+
+.statistic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--line-color);
+  align-items: center;
+
+  .title {
+    & > .open {
+      @extend %btn;
+      font-size: 20px;
+      color: var(--text-color);
+    }
+  }
+
+  .trigger {
+    cursor: pointer;
+  }
+
+  .arrearsDays {
+    color: var(--green-color);
+
+    &.yellow {
+      color: var(--orange-color);
+    }
+
+    &.red {
+      color: var(--red-color);
+    }
+  }
+}
+
+.statistic:last-child {
+  border: none;
+}

@@ -1,0 +1,132 @@
+@import 'src/styles/mixins';
+
+.payment-item {
+  display: grid;
+  grid-template-areas: 'price date properties tenant';
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 40px;
+  align-items: center;
+  border-bottom: 1px solid var(--line-color);
+  cursor: pointer;
+  padding: 9px;
+
+  &:last-child{
+    border: none;
+  }
+
+  .price {
+    grid-area: price;
+    display: flex;
+    align-items: baseline;
+    font-weight: normal;
+    font-size: 36px;
+    color: var(--green-color);
+
+    svg {
+      min-width: 27px;
+
+      path {
+        fill: var(--text-color);
+      }
+    }
+
+    & > .value {
+      font-size: 30px;
+      line-height: 45px;
+      @extend %overflow;
+      font-weight: $font-normal;
+    }
+  }
+
+  .tenant {
+    text-align: right;
+    @extend %overflow;
+    line-height: 1.4;
+  }
+
+  .date {
+    grid-area: date;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .property {
+    line-height: 1.3;
+    @extend %overflow;
+  }
+
+  .tenant {
+    text-align: right;
+    line-height: 1.4;
+  }
+
+  &.green {
+    .date {
+      color: var(--green-color);
+    }
+  }
+
+  &.orange {
+    .date {
+      color: var(--orange-color);
+    }
+  }
+
+  &.red {
+    .date {
+      color: var(--red-color);
+    }
+  }
+
+  &.grey {
+    .date {
+      color: var(--grey-color);
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .payment-item {
+    font-size: 14px;
+    line-height: 16px;
+    height: 62px;
+
+    .price {
+      align-items: center;
+
+      svg {
+        min-width: 27px;
+      }
+
+      & > .value {
+        font-size: 24px;
+        line-height: 28px;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .payment-item {
+    font-size: 8px;
+    line-height: 9px;
+    height: 30px;
+    grid-column-gap: 15px;
+    padding: 6px;
+    grid-template-columns: 0.7fr 1fr 1.5fr 1.5fr;
+
+    .price {
+      align-items: center;
+
+      svg {
+        min-width: 27px;
+      }
+
+      & > .value {
+        font-size: 10px;
+        line-height: 12px;
+      }
+    }
+  }
+}

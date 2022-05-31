@@ -1,0 +1,301 @@
+@import 'src/styles/mixins';
+
+.property {
+  width: 100%;
+  height: 300px;
+  display: grid;
+  background: var(--card-color);
+  grid-template-areas: 'photo info money' 'buttons buttons buttons';
+  grid-template-columns: 175px 3fr 1fr;
+  grid-template-rows: 175px 50px;
+  grid-gap: 25px;
+  padding: 25px;
+
+	& > .photo {
+		grid-area: photo;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 175px;
+		width: 175px;
+		overflow: hidden;
+
+		& > .image {
+			height: 175px;
+			width: 175px;
+			padding: 34px;
+			background: var(--avatar-color);
+		}
+	}
+
+	& > .info {
+		grid-area: info;
+		display: grid;
+		grid-template-rows: repeat(3, 1fr);
+
+		& > .field {
+			//overflow: hidden;
+			max-width: 350px;
+			& > .description {
+				color: var(--accent-color);
+				margin-bottom: 3px;
+				font-size: 14px;
+			}
+
+			& > .title-container {
+				display: inline-flex;
+				width: 100%;
+
+				& > .title {
+					font-size: 30px;
+					line-height: 1.2;
+					@extend %overflow;
+				}
+
+				& > .edit {
+					@extend %btn;
+					width: 18px;
+					margin: 0 12px;
+
+					&:hover {
+						path {
+							fill: var(--hover-color);
+						}
+					}
+				}
+			}
+
+			& > .address {
+				font-size: 18px;
+				white-space: pre-line;
+			}
+		}
+
+		& > .button-field {
+			display: flex;
+			align-items: flex-end;
+
+			& > .button {
+				@extend %btn;
+				color: var(--red-color);
+
+				&.disabled {
+					color: var(--passive-color);
+				}
+			}
+		}
+	}
+
+	& > .money {
+		grid-area: money;
+		display: grid;
+		grid-template-rows: repeat(2, max-content);
+		grid-row-gap: 10px;
+
+		& > .paid,
+		& > .sum {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			margin: 0 0 auto auto;
+
+			& > .title {
+				font-size: 24px;
+				margin: 0 0 7px auto;
+			}
+
+			& > .amount {
+				font-size: 36px;
+				margin: 0 0 auto auto;
+
+				&.green {
+					color: var(--green-color);
+				}
+
+				&.orange {
+					color: var(--orange-color);
+				}
+
+				&.red {
+					color: var(--red-color);
+				}
+			}
+		}
+
+		& > .sum {
+			margin: auto 0 0 auto;
+		}
+
+		& > .count {
+			font-size: 48px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: flex-end;
+			margin-bottom: 5px;
+		}
+
+		& > .description {
+			font-size: 14px;
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
+
+	& > .buttons {
+		grid-area: buttons;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+
+		& > .tenancy,
+		& > .balance {
+			@extend %btn;
+
+			&.active {
+				color: var(--active-color);
+			}
+		}
+	}
+}
+
+.dashboard {
+  grid-template-areas: 'photo info money';
+  grid-template-rows: 175px;
+}
+
+@media (max-width: $tablet) {
+	.property {
+		grid-template-columns: max-content 3fr max-content;
+		height: auto;
+		& > .photo {
+			height: 184px;
+			width: 184px;
+		}
+
+		& > .info {
+			& > .field {
+				& > .description {
+					font-size: 12px;
+					line-height: 14px;
+				}
+
+				& > .title-container {
+					& > .title {
+						font-size: 20px;
+						line-height: 23px;
+					}
+				}
+
+				& > .address {
+					font-size: 14px;
+					line-height: 16px;
+				}
+			}
+
+			& > .button-field {
+				& > .button {
+					font-size: 18px;
+					line-height: 21px;
+				}
+			}
+		}
+		& > .money {
+			justify-content: flex-start;
+		}
+	}
+
+	.hidden {
+		display: none;
+	}
+}
+@media (max-width: $mobile) {
+	.property {
+		grid-template-columns: max-content 4fr 1fr;
+		grid-template-rows: 103px;
+		grid-column-gap: 7px;
+		grid-row-gap: 18px;
+		padding: 10px 8px 8px;
+		& > .photo {
+			width: 103px;
+			height: 103px;
+		}
+
+		& > .info {
+			grid-template-rows: repeat(3, max-content);
+			align-content: space-between;
+			grid-row-gap: 5px;
+			& > .field {
+				& > .description {
+					font-size: 10px;
+					line-height: 12px;
+				}
+
+				& > .title-container {
+					align-items: flex-start;
+					& > .title {
+						font-size: 14px;
+						line-height: 16px;
+					}
+					& > .edit {
+						margin: 0 10px;
+						display: flex;
+						& > svg {
+							width: 11px;
+							height: 11px;
+						}
+					}
+				}
+
+				& > .address {
+					font-size: 10px;
+					line-height: 12px;
+				}
+			}
+
+			& > .button-field {
+				& > .button {
+					font-size: 12px;
+					line-height: 14px;
+				}
+			}
+		}
+		& > .money {
+			grid-gap: 0;
+			& > .paid,
+			& > .sum {
+				margin-bottom: 10px;
+
+				align-items: center;
+				& > .title {
+					font-weight: 300;
+					font-size: 12px;
+					line-height: 14px;
+					width: 60px;
+					text-align: right;
+					margin-bottom: 4px;
+				}
+				& > .amount {
+					font-size: 14px;
+					line-height: 16px;
+					font-weight: normal;
+				}
+			}
+			& > .description {
+				font-size: 6px;
+				line-height: 7px;
+				text-align: right;
+			}
+			& > .count {
+				font-size: 12px;
+				line-height: 14px;
+				margin-bottom: 5px;
+			}
+		}
+		& > .buttons {
+			& > .tenancy,
+			& > .balance {
+				font-size: 14px;
+			}
+		}
+	}
+}

@@ -1,0 +1,81 @@
+@import 'src/styles/mixins';
+
+.messenger{
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: 0.3s;
+
+  &-title{
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    svg {
+      cursor: pointer;
+
+      path {
+        stroke: var(--text-color);
+      }
+    }
+
+    p{
+      color: var(--active-color);
+      font-size: 24px;
+    }
+  }
+
+  &-form {
+    flex: 1 1;
+
+    label {
+      border-top: 1px solid var(--line-color);
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    input {
+      padding-left: 10px;
+      background: transparent;
+      flex: 1
+    }
+  }
+
+  &-textarea{
+    width: 100%;
+    height: calc(100% - 80px);
+    border-top: 1px solid var(--line-color);
+    resize: none;
+    padding: 15px;
+    background: transparent;
+  }
+
+  &-button {
+    color: var(--text-color);
+    background: transparent;
+    font-size: 20px;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    cursor: pointer;
+    padding: 15px;
+    border-top: 1px solid var(--line-color);
+    border-bottom: 1px solid var(--line-color);
+
+    &:hover:not(.active) {
+      color: var(--hover-color);
+      transition: 0.2s;
+    }
+
+    &:disabled{
+      opacity: 0.5;
+
+      &:hover:not(.active) {
+        color: var(--text-color);
+      }
+    }
+  }
+}

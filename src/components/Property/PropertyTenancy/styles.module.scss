@@ -1,0 +1,15 @@
+@import 'src/styles/mixins';
+
+.tenancy {
+	background: var(--card-color);
+	padding: 0 25px 25px;
+	overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: $mobile) {
+	.tenancy {
+		padding: 0 8px 8px;
+	}
+}

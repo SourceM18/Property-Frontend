@@ -1,0 +1,290 @@
+@import 'src/styles/mixins';
+
+.header {
+	display: grid;
+	grid-template-columns: max-content 1fr max-content;
+	grid-template-areas: 'ico calendar button';
+	justify-content: space-between;
+	border-bottom: 1px solid var(--line-color);
+	background: var(--card-color);
+
+	& > .app-icon {
+		margin: 8px 12px;
+		display: flex;
+		align-items: center;
+		grid-area: ico;
+
+		&:hover {
+			& > svg {
+				cursor: pointer;
+
+				path {
+					stroke: var(--hover-color);
+				}
+			}
+		}
+
+		& > svg {
+			height: 50px;
+
+			path {
+				stroke: var(--text-color);
+			}
+		}
+		& > span {
+			margin-left: 12px;
+			margin-top: 12px;
+			font-weight: 600;
+			letter-spacing: 0.3px;
+			display: inline-block;
+			&.text-blue {
+				color: #10069f;
+			}
+		}
+	}
+
+	& > .additional-buttons {
+		display: flex;
+		align-items: center;
+		grid-area: button;
+		margin-right: 15px;
+
+		& > .install {
+			@extend %btn;
+			margin-right: 48px;
+			display: flex;
+
+			&:hover {
+				svg path {
+					fill: var(--hover-color);
+				}
+			}
+		}
+
+		& > .account-link {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			max-width: 450px;
+
+			& > .name,
+			& > .surname {
+				font-size: 25px;
+				color: var(--passive-color);
+				margin-right: 5px;
+				line-height: 1.4;
+				@extend %overflow;
+			}
+
+			& > .surname {
+				margin-right: 10px;
+			}
+
+			& > .photo {
+				border-radius: 50%;
+				width: 35px;
+				height: 35px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0;
+
+				& > .icon {
+					border-radius: 50%;
+					width: 100%;
+					height: 100%;
+				}
+
+				& > .image {
+					width: 20px;
+					height: 20px;
+				}
+
+				&.plug {
+					background: var(--avatar-color);
+					justify-content: center;
+					align-items: center;
+				}
+			}
+
+			&.active {
+				& > .name,
+				& > .surname {
+					color: var(--active-color);
+				}
+
+				& > .photo {
+					border: 3px solid var(--active-color);
+
+					&.plug {
+						background: var(--avatar-color);
+						padding: 5px;
+					}
+				}
+			}
+
+			&:after {
+				background: transparent;
+			}
+		}
+
+		& > .link {
+			cursor: pointer;
+
+			& > .icon {
+				margin: 8px 12px;
+				width: 26px;
+				height: 26px;
+
+				path {
+					stroke: var(--passive-color);
+				}
+			}
+
+			&.active {
+				& > .icon {
+					path {
+						stroke: var(--accent-color);
+					}
+				}
+			}
+
+			&:not(.active):hover {
+				& > .icon {
+					path {
+						stroke: var(--hover-color);
+					}
+				}
+			}
+		}
+
+		& > .logout {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 8px;
+
+			& > .button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: transparent;
+
+				& > .icon {
+					height: 32px;
+					width: 32px;
+				}
+
+				&:hover > .icon > path {
+					fill: var(--hover-color);
+					stroke: var(--hover-color);
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.header {
+		& > .app-icon {
+			& > span {
+				display: none;
+			}
+		}
+	}
+	.buttons {
+		& > .app-icon {
+			margin: 12px 22px;
+			& > svg {
+				height: 38px;
+			}
+		}
+
+		& > .additional-buttons {
+			& > .install {
+				transform: scale(1.3);
+				margin-right: 30px;
+				margin-bottom: 2px;
+			}
+
+			& > .link {
+				& > .icon {
+					width: 28px;
+					height: 28px;
+					margin: 23px 25px;
+				}
+			}
+		}
+	}
+}
+@media (max-width: $mobile) {
+	.header {
+		grid-template-columns: max-content max-content;
+		grid-template-rows: max-content max-content;
+		grid-template-areas: 'ico button' ' calendar';
+		justify-content: space-between;
+
+		& > .app-icon {
+			margin: 5px 10px;
+			width: max-content;
+			& > svg {
+				height: 40px;
+			}
+		}
+		& > .additional-buttons {
+			justify-self: end;
+			& > .install {
+				transform: scale(0.9);
+				margin-right: 11px;
+			}
+
+			& > .link {
+				&::after {
+					display: none;
+				}
+
+				& > .icon {
+					width: 25px;
+					height: 25px;
+					margin: 10px 11px;
+				}
+			}
+			& > .account-link {
+				& > .name,
+				& > .surname {
+					display: none;
+				}
+				& > .photo {
+					width: 32px;
+					height: 32px;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 500px) {
+	.header {
+		grid-template-columns: max-content;
+		grid-template-rows: max-content;
+		grid-template-areas: 'ico button' 'calendar calendar';
+		justify-content: space-between;
+		.calendar {
+			width: 100%;
+			justify-content: space-between;
+			& > .clock-icon {
+				height: 0;
+				overflow: hidden;
+			}
+		}
+	}
+}
+@media (max-width: 321px) {
+	.header {
+		& > .app-icon {
+			& > svg {
+				height: 28px;
+			}
+		}
+	}
+}
