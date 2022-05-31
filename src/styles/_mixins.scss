@@ -1,0 +1,204 @@
+@import 'variables';
+
+@mixin input-placeholder($size: 12px, $color: transparent) {
+  &::-webkit-input-placeholder {
+    font-size: $size;
+    color: $color;
+  }
+}
+
+%scroll {
+  &::-webkit-scrollbar, &::-webkit-scrollbar-track {
+    width: 4px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--passive-color);
+  }
+
+  scrollbar-color: dark;
+  scrollbar-width: thin;
+}
+
+%input {
+  position: relative;
+
+  input {
+    background: transparent;
+    border-bottom: 1px solid var(--line-color);
+    //min-width: 250px;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  label {
+    color: var(--passive-color);
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 300;
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: -5px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+
+  input:focus ~ label, input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: var(--active-color);
+
+  }
+
+  input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width: 100%;
+  }
+
+  @-webkit-keyframes inputHighlighter {
+    from {
+      background: var(--active-color);
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+
+  @-moz-keyframes inputHighlighter {
+    from {
+      background: var(--active-color);
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+
+  @keyframes inputHighlighter {
+    from {
+      background: var(--active-color);
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+}
+
+%address-input {
+  position: relative;
+
+  input {
+    background: transparent;
+    border-bottom: 1px solid var(--line-color);
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  label {
+    color: var(--passive-color);
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 300;
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: -5px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+
+  input:focus ~ label, input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: var(--active-color);
+  }
+
+  input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width: 100%;
+  }
+
+  @-webkit-keyframes inputHighlighter {
+    from {
+      background: var(--active-color);
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+
+  @-moz-keyframes inputHighlighter {
+    from {
+      background: var(--active-color);
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+
+  @keyframes inputHighlighter {
+    from {
+      background: var(--active-color);
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+}
+
+%big-input {
+  font-size: 24px;
+  line-height: 28px;
+  background: none;
+}
+
+%btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 28px;
+
+  &:disabled {
+    cursor: auto;
+    color: var(--passive-color);
+  }
+
+  &:not(:disabled) {
+    @extend %hover;
+  }
+}
+
+%hover {
+  &:hover {
+    color: var(--hover-color);
+  }
+}
+
+%overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+};
+
+@mixin header-unauthorized {
+  font-size: 96px;
+  line-height: 112px;
+  grid-area: header;
+
+  @media (max-width: $mobile) {
+    font-size: 40px;
+    line-height: 47px;
+  }
+}

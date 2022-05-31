@@ -1,0 +1,43 @@
+@import 'src/styles/mixins';
+
+.app-layout {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	& > .body {
+		background: var(--bg-color);
+		padding: 28px 45px;
+		height: 100%;
+    overflow: hidden;
+
+		& > :first-child {
+			height: 100%;
+		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.app-layout {
+		& > .navbar {
+			order: 3;
+		}
+		& > .body {
+			padding: 22px;
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	.app-layout {
+		&.dashboard{
+			max-height: -webkit-fill-available;
+			position: absolute;
+		}
+
+		& > .body {
+			padding: 14px;
+		}
+	}
+}

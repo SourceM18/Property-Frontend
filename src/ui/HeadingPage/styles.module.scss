@@ -1,0 +1,28 @@
+@import 'src/styles/mixins';
+
+.title-container {
+	display: none;
+}
+
+@media (max-width: $tablet) {
+	.title-container {
+		display: block;
+		background: var(--card-color);
+		font-size: 36px;
+		line-height: 42px;
+		text-align: center;
+		color: #1a66f8;
+    padding: 15px 25px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 100vw;
+    left: -22px;
+	}
+}
+@media (max-width: $mobile) {
+	.title-container {
+		font-size: 18px;
+		line-height: 21px;
+    left: -14px;
+	}
+}

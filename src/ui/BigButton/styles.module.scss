@@ -1,0 +1,67 @@
+@import 'src/styles/mixins';
+
+.btn-component {
+	display: flex;
+	grid-column-gap: 10px;
+	grid-column: max-content;
+	grid-template-areas: 'icon text';
+	background: var(--card-color);
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	height: 100%;
+	width: 100%;
+
+	& > .icon {
+		grid-area: icon;
+		height: 40px;
+		width: 40px;
+		margin: 10px;
+	}
+
+	svg path {
+		fill: var(--text-color);
+	}
+
+	& > .btn-text {
+		grid-area: text;
+		font-size: 24px;
+	}
+
+	&:hover {
+		svg path {
+			fill: var(--accent-color);
+		}
+
+		& > .btn-text {
+			color: var(--accent-color);
+		}
+	}
+}
+@media (max-width: $tablet) {
+	.btn-component {
+		& > .icon {
+			height: 33px;
+			width: 33px;
+		}
+
+		& > .btn-text {
+			font-size: 20px;
+			line-height: 23px;
+		}
+	}
+}
+@media (max-width: $mobile) {
+	.btn-component {
+
+		& > .icon {
+			height: 14px;
+			width: 14px;
+		}
+
+		& > .btn-text {
+			font-size: 10px;
+			line-height: 12px;
+		}
+	}
+}

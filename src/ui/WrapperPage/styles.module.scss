@@ -1,0 +1,44 @@
+@import 'src/styles/mixins';
+
+.wrapper-grid {
+	display: grid;
+	grid-template-columns: 1fr 400px;
+	grid-column-gap: 25px;
+	height: 100%;
+	max-width: 1366px;
+	margin: auto;
+
+	&.full-width {
+		grid-template-columns: 0 1fr;
+		grid-column-gap: 0px;
+	}
+}
+
+.access-denied-wrapper {
+	height: 100%;
+	max-width: 1366px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 40px;
+	background: var(--card-color);
+}
+
+@media (max-width: $tablet) {
+	.wrapper-grid {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: flex-end;
+	}
+
+	.access-denied-wrapper {
+		font-size: 30px;
+	}
+}
+
+@media (max-width: $mobile) {
+	.access-denied-wrapper {
+		font-size: 20px;
+	}
+}

@@ -1,0 +1,5 @@
+@import 'src/styles/mixins';
+
+.go-back__btn {
+	@extend %btn;
+}

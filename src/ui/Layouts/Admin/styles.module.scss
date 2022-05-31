@@ -1,0 +1,49 @@
+@import 'src/styles/mixins';
+
+.app-layout {
+  height: 100%;
+  width: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content min-content 1fr;
+  grid-template-areas: 'header' 'navbar' 'body';
+
+  & > .header {
+    grid-area: header;
+  }
+
+  & > .navbar {
+    grid-area: navbar;
+  }
+
+  & > .body {
+    grid-area: body;
+    background: var(--bg-color);
+    padding: 28px 45px;
+
+    & > :first-child {
+      background: var(--card-color);
+      height: 100%;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .app-layout {
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-areas: 'header' 'body' 'navbar';
+
+    & > .body {
+      padding: 22px;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .app-layout {
+    & > .body {
+      padding: 14px;
+    }
+  }
+}

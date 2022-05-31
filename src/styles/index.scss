@@ -1,0 +1,83 @@
+@import "reset";
+@import "fonts";
+@import "mixins";
+
+* {
+  font-family: Sarala, sans-serif;
+  box-sizing: border-box;
+  font-weight: $font-light;
+  color: var(--text-color);
+
+  &, &:focus {
+    outline: none;
+  }
+
+  @extend %scroll;
+}
+
+// html, body {
+// 	overflow: hidden;
+// }
+
+section, nav, header, div, button {
+  //transition: background 0.5s ease, color 0.5s ease;
+}
+
+input, textarea {
+  transition: border 0.5s ease;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: all 5000s ease-in-out 0s;
+}
+
+/* input[type=number] for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+:root {
+  // common variables
+  --active-color: #1a66f8;
+  --green-color: #208414;
+  --orange-color: #fcb604;
+  --red-color: #900601;
+  --grey-color: #797979;
+  --black-color: #000000;
+  --white-color: #ffffff;
+  --hover-color: #75acff;
+
+  // light theme variables
+  [data-theme='light'] {
+    --bg-color: #c4c4c4;
+    --card-color: #ffffff;
+    --line-color: #787878;
+    --accent-color: #6a6ae4;
+    --passive-color: #646464;
+    --avatar-color: #dbdbdb;
+    --text-color: #000000;
+    --bold-line-color: #313131;
+  }
+
+  // dark theme variables
+  [data-theme='dark'] {
+    --bg-color: #2b2828;
+    --card-color: #090909;
+    --line-color: #787878;
+    --accent-color: #1a66f8;
+    --passive-color: #989898;
+    --avatar-color: #c4c4c4;
+    --text-color: #ffffff;
+    --bold-line-color: #d9d9d9;
+  }
+}
