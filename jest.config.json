@@ -1,0 +1,31 @@
+{
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx"
+  ],
+  "moduleDirectories": [
+    "<rootDir>",
+    "node_modules",
+    "src"
+  ],
+  "verbose": false,
+  "clearMocks": true,
+  "collectCoverage": false,
+  "snapshotSerializers": [
+    "./node_modules/enzyme-to-json/serializer"
+  ],
+  "transform": {
+    "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+    "^.+\\.svg$": "jest-transform-stub"
+  },
+  "setupFiles": [
+    "<rootDir>/setupTest.ts"
+  ],
+  "moduleNameMapper": {
+    "^.+\\.(css|scss)$": "identity-obj-proxy",
+    "assets/(.*)": "<rootDir>/src/assets/$1"
+  },
+  "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
+}
