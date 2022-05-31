@@ -1,0 +1,79 @@
+@import 'src/styles/mixins';
+
+.contact {
+  background: var(--card-color);
+  width: 100%;
+  padding: 25px;
+  font-weight: 300;
+
+  @media (max-width: $tablet) {
+    margin-bottom: 15px;
+  }
+
+  &-name{
+    font-size: 30px;
+    padding-bottom: 32px;
+
+    @media (max-width: $mobile) {
+      font-size: 24px;
+    }
+  }
+
+  &-list {
+    font-size: 24px;
+    span {
+      margin-right: 10px;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 14px;
+    }
+    p:not(:last-child){
+      padding-bottom: 22px;
+
+      a{
+        text-decoration: none;
+      }
+    }
+  }
+
+  &-socials {
+    padding-top: 45px;
+    display: flex;
+
+    @media (max-width: $mobile) {
+      padding-top: 30px;
+    }
+
+    &-wrapper {
+      margin-right: 15px;
+
+      @media (max-width: $mobile) {
+        margin-right: 10px;
+      }
+    }
+    p {
+      font-size: 24px;
+      padding-bottom: 10px;
+
+      @media (max-width: $mobile) {
+        font-size: 18px;
+      }
+    }
+
+    &-list {
+      a {
+        margin-right: 12px;
+
+        @media (max-width: $mobile) {
+          margin-right: 5px;
+
+          svg {
+            width: 35px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

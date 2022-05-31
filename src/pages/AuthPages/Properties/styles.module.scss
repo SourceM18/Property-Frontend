@@ -1,0 +1,12 @@
+@import '../../../styles/mixins';
+
+.body {
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	height: 100%
+}
+
+.access-denied {
+	background: var(--card-color);
+}

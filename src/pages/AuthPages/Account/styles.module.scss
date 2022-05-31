@@ -1,0 +1,203 @@
+@import 'src/styles/mixins';
+
+.account-page {
+
+  max-width: 1366px;
+	margin: auto;
+  display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+
+
+  & > .body {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+//.account-page {
+//	display: grid;
+//	grid-template-areas:
+//		'details settings'
+//		'details buttons';
+//	grid-template-rows: max-content 1fr;
+//	grid-template-columns: 1fr 1fr;
+//	grid-column-gap: 130px;
+//	padding: 47px 40px 40px 14px;
+//	height: 100%;
+//
+//	& > .mobile-heading {
+//		display: none;
+//	}
+//
+//	& > .mobile-slider {
+//		display: none;
+//	}
+//
+//	& > .details {
+//		grid-area: details;
+//	}
+//
+//	& > .settings {
+//		& > .nav-container {
+//			display: flex;
+//			margin-bottom: 35px;
+//
+//			& > .nav-btn {
+//				background: transparent;
+//				padding: 12px 40px 12px 12px;
+//				font-size: 18px;
+//				color: var(--passive-color);
+//				display: block;
+//
+//				&:before {
+//					position: absolute;
+//					bottom: 0;
+//					left: 0;
+//					width: 100%;
+//					height: 0;
+//					background: var(--accent-color);
+//					transition: height 0.3s ease;
+//					content: '';
+//				}
+//
+//				&.active {
+//					position: relative;
+//					color: var(--accent-color);
+//					font-weight: $font-normal;
+//
+//					&:before {
+//						height: 2px;
+//					}
+//				}
+//
+//				&:not(.active):hover {
+//					stroke: var(--hover-color);
+//				}
+//			}
+//		}
+//	}
+//
+//	@media (max-width: $mobile) {
+//		.settings {
+//			& > .nav-container {
+//				display: none;
+//			}
+//		}
+//	}
+//
+//	& > .done__btn, & > .logout__btn {
+//		@extend %btn;
+//		@extend %hover;
+//		grid-area: buttons;
+//		justify-self: flex-end;
+//		align-self: flex-start;
+//		margin-top: 20px;
+//	}
+//
+//	.logout__btn {
+//		display: none;
+//	}
+//}
+//
+//@media (max-width: 1200px) {
+//	.account-page {
+//		grid-template-columns: 1fr;
+//		grid-template-rows: max-content max-content 1fr;
+//		grid-template-areas:
+//			'mobile-heading'
+//			'details'
+//			'settings'
+//			'buttons';
+//	}
+//}
+//
+//@media (max-width: $tablet) {
+//	.account-page {
+//		grid-template-rows: max-content max-content max-content 1fr;
+//		padding: 15px 30px 56px;
+//
+//		& > .mobile-heading {
+//			display: block;
+//			text-align: center;
+//			font-size: 24px;
+//			line-height: 28px;
+//			padding-bottom: 52px;
+//			color: var(--active-color);
+//			border-bottom: 1px solid var(--line-color);
+//			grid-area: mobile-heading;
+//			margin-bottom: 8px;
+//			justify-self: center;
+//			width: calc(100% + 30px);
+//		}
+//
+//		.logout__btn {
+//			display: block;
+//		}
+//	}
+//}
+//
+//@media (max-width: $mobile) {
+//	.account-page {
+//		padding: 12px 15px;
+//		display: flex;
+//		flex-direction: column;
+//
+//
+//		& > .mobile-heading {
+//			width: calc(100% + 16px);
+//			margin-left: -8px;
+//		}
+//
+//		& > .mobile-heading {
+//			font-size: 18px;
+//			line-height: 21px;
+//			width: 100%;
+//			padding-bottom: 34px;
+//		}
+//
+//		& > .mobile-slider {
+//			display: flex;
+//			justify-content: center;
+//			padding: 15px 0;
+//
+//			& > .button-right, .button-left {
+//				width: 40px;
+//				height: 28px;
+//				background-color: transparent;
+//
+//				&::after {
+//					content: "";
+//					display: inline-block;
+//					width: 10px;
+//					height: 10px;
+//					border-bottom: 2px solid;
+//					border-left: 2px solid;
+//					border-color: #989898;
+//				}
+//			}
+//
+//			& > .button-right::after {
+//				transform: rotate(227deg);
+//			}
+//
+//			& > .button-left::after {
+//				transform: rotate(45deg);
+//			}
+//
+//			& > .name {
+//				font-size: 24px;
+//				line-height: 28px;
+//				color: var(--active-color);
+//				flex-basis: 114px;
+//				text-align: center;
+//			}
+//		}
+//
+//		& > .done__btn, & > .logout__btn {
+//			font-size: 14px;
+//		}
+//	}
+//}
