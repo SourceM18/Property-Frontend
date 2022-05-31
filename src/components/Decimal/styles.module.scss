@@ -1,0 +1,40 @@
+.sum {
+  & > .decimal {
+    font-size: 0.5em;
+    color: inherit;
+  }
+
+  &.green {
+    color: var(--green-color);
+
+    .decimal {
+      color: var(--green-color);
+    }
+  }
+
+  &.orange {
+    color: var(--orange-color);
+
+    .decimal {
+      color: var(--orange-color);
+    }
+  }
+
+  &.red {
+    color: var(--red-color);
+
+    .decimal {
+      color: var(--red-color);
+    }
+  }
+
+  &.grey {
+    color: var(--grey-color);
+
+    .decimal {
+      color: var(--grey-color);
+    }
+  }
+}
+
+

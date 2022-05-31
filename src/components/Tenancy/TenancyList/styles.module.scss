@@ -1,0 +1,6 @@
+@import '../../../styles/mixins';
+
+.tenancy-list {
+	border-bottom: 1px solid var(--bold-line-color);
+	overflow: auto;
+}

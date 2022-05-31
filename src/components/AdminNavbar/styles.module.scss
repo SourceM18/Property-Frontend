@@ -1,0 +1,111 @@
+@import "src/styles/mixins";
+
+.navbar {
+  display: flex;
+  padding: 0 12px;
+  background: var(--card-color);
+
+  & > .link {
+    padding: 12px;
+    margin-left: 20px;
+
+    & > .text {
+      font-size: 18px;
+      line-height: 21px;
+      text-transform: capitalize;
+      color: var(--passive-color);
+    }
+
+    & > .icon, & > .discount-icon  {
+      display: none;
+    }
+
+    &.active {
+      & > .text {
+        color: var(--active-color);
+        font-weight: $font-normal;
+      }
+    }
+
+    &:hover:not(.active) {
+      & > .text {
+        color: var(--hover-color);
+      }
+    }
+  }
+
+  & > .logout {
+    margin: auto 0 auto auto;
+
+    & > .button {
+      background: transparent;
+      color: var(--passive-color);
+      font-size: 18px;
+      padding: 12px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .navbar {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+
+    & > .link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 78px;
+      padding: 0 10px;
+      min-width: unset;
+
+      & > .text {
+        display: none;
+      }
+
+      & > .icon {
+        display: block;
+      }
+
+      & > .discount-icon {
+        display: block;
+        fill: #989898;
+      }
+
+      &:after {
+        bottom: unset;
+        top: 0;
+      }
+
+      &.active {
+        & > .icon path, & > .icon rect {
+          stroke: var(--active-color);
+        }
+
+        & > .discount-icon path, & > .discount-icon rect {
+          fill: var(--active-color);
+        }
+      }
+    }
+
+    & > .logout {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .navbar {
+    & > .link {
+      grid-column-gap: 10px;
+      height: 43px;
+      padding: 0 4px;
+
+      & > .icon {
+        height: 23px;
+      }
+    }
+  }
+}

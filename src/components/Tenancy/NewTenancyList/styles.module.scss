@@ -1,0 +1,15 @@
+@import '../../../styles/mixins';
+
+.tenancy-list {
+	overflow: auto;
+}
+@media (max-width: $tablet) {
+	.tenancy-list {
+		height: calc(100vh - 810px);
+	}
+}
+@media (max-width: $mobile) {
+	.tenancy-list {
+		height: calc(100vh - 450px);
+	}
+}

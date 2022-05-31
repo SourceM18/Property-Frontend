@@ -1,0 +1,15 @@
+@import 'src/styles/mixins';
+
+.date-picker {
+  display: grid;
+  grid-template-columns: 23px 35px 47px;
+  grid-gap: 10px;
+  text-align: center;
+}
+@media (max-width: $mobile) {
+  .date-picker {
+    grid-template-columns: 15px 20px 30px;
+    align-items: flex-end;
+    grid-gap: 5px;
+  }
+}

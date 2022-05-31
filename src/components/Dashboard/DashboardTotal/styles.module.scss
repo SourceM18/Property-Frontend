@@ -1,0 +1,198 @@
+@import 'src/styles/mixins';
+
+.dashboard-total {
+	display: flex;
+	height: 140px;
+	padding: 25px;
+	background: var(--card-color);
+	border: 5px solid var(--text-color);
+	justify-content: space-between;
+	align-items: center;
+
+	& > .price-container {
+		cursor: pointer;
+
+		& > .amount {
+			display: inline-flex;
+			justify-content: flex-start;
+			align-items: center;
+			margin-bottom: 10px;
+
+			svg > path {
+				fill: var(--text-color);
+			}
+
+			& > .icon {
+				height: 48px;
+				margin-bottom: 3px;
+			}
+
+			& > .value {
+				margin-left: 5px;
+				font-size: 48px;
+			}
+		}
+
+		&:hover {
+			& > .amount > svg > path {
+				fill: var(--hover-color);
+			}
+
+			& > .amount > .value,
+			& > .description {
+				color: var(--hover-color);
+			}
+		}
+	}
+
+	& > .count-container {
+		cursor: pointer;
+
+		& > .count {
+			font-size: 48px;
+			margin-bottom: 10px;
+		}
+
+		&:hover {
+			& > .count,
+			& > .text {
+				color: var(--hover-color);
+			}
+		}
+	}
+
+	&.green,
+	&.orange,
+	&.red,
+	&.grey {
+		& > .price-container:hover {
+			& > .amount > svg > path {
+				fill: var(--hover-color);
+			}
+
+			& > .amount > .value,
+			& > .description {
+				color: var(--hover-color);
+			}
+		}
+
+		& > .count-container:hover {
+			& > .count,
+			& > .text {
+				color: var(--hover-color);
+			}
+		}
+	}
+
+	&.green {
+		border: 5px solid var(--green-color);
+
+		& > .price-container > .amount > svg > path {
+			fill: var(--green-color);
+		}
+
+		& > .price-container > .amount > .value,
+		& > .price-container > .description,
+		& > .count-container > .count,
+		& > .count-container > .text {
+			color: var(--green-color);
+		}
+	}
+
+	&.orange {
+		border: 5px solid var(--orange-color);
+
+		& > .price-container > .amount > svg > path {
+			fill: var(--orange-color);
+		}
+
+		& > .price-container > .amount > .value,
+		& > .price-container > .description,
+		& > .count-container > .count,
+		& > .count-container > .text {
+			color: var(--orange-color);
+		}
+	}
+
+	&.red {
+		border: 5px solid var(--red-color);
+
+		& > .price-container > .amount > svg > path {
+			fill: var(--red-color);
+		}
+
+		& > .price-container > .amount > .value,
+		& > .price-container > .description,
+		& > .count-container > .count,
+		& > .count-container > .text {
+			color: var(--red-color);
+		}
+	}
+
+	&.grey {
+		border: 5px solid var(--grey-color);
+
+		& > .price-container > .amount > svg > path {
+			fill: var(--grey-color);
+		}
+
+		& > .price-container > .amount > .value,
+		& > .price-container > .description,
+		& > .count-container > .count,
+		& > .count-container > .text {
+			color: var(--grey-color);
+		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.dashboard-total {
+		& > .price-container {
+			& > .amount {
+				& > .icon {
+					height: 27px;
+				}
+				& > .value {
+					font-size: 36px;
+				}
+			}
+		}
+		.count-container {
+			.count {
+				font-size: 36px;
+			}
+		}
+	}
+}
+@media (max-width: $mobile) {
+	.dashboard-total {
+		height: 55px;
+		padding: 7px 9px;
+		border: none !important;
+		& > .price-container {
+			margin-right: 10px;
+			& > .amount {
+				& > .icon {
+					height: 11px;
+					width: 15px;
+				}
+				& > .value {
+					font-size: 14px;
+					margin-left: 0;
+				}
+			}
+			& > .description {
+				font-size: 8px;
+			}
+		}
+		& > .count-container {
+			& > .count {
+				font-size: 14px;
+				text-align: right;
+			}
+			& > .text {
+				font-size: 8px;
+			}
+		}
+	}
+}

@@ -1,0 +1,66 @@
+@import 'src/styles/mixins';
+
+.discount {
+	display: grid;
+	grid-template-areas: 'info .' 'info done';
+	grid-template-columns: 1fr 220px;
+	grid-column-gap: 42px;
+	padding: 10px 12px;
+
+	& > .information {
+		grid-area: info;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		align-items: flex-start;
+
+		& > :not(:first-child) {
+			margin-top: 20px;
+		}
+
+		& > .title-container {
+			margin-top: 30px;
+			display: flex;
+			align-items: baseline;
+
+			& > .title__input {
+				@extend %input;
+				color: var(--passive-color);
+				width: calc(100% - 30px);
+				max-width: max-content;
+			}
+		}
+
+		& > .users {
+			& > .btn {
+				@extend %btn;
+			}
+		}
+
+		& > .calendar {
+			display: grid;
+			position: relative;
+			grid-template-columns: 1fr;
+
+			& > .date-picker {
+				display: flex;
+
+				& > .label {
+					margin-right: 10px;
+					color: var(--active-color);
+				}
+			}
+		}
+	}
+
+	& > .create__btn {
+		grid-area: done;
+		@extend %btn;
+		align-self: flex-end;
+		justify-self: flex-start;
+
+		&:not(:disabled) {
+			@extend %hover;
+		}
+	}
+}

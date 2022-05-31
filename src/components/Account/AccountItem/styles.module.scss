@@ -1,0 +1,176 @@
+@import 'src/styles/mixins';
+
+.account-item {
+	background: var(--card-color);
+	height: 226px;
+	width: 100%;
+	padding: 25px;
+	display: grid;
+	grid-template-columns: max-content 1fr max-content;
+	grid-gap: 25px;
+
+	& > .photo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		height: 170px;
+		width: 170px;
+
+		&.plug {
+			background: var(--avatar-color);
+			padding: 40px;
+		}
+
+		& > .image {
+			height: 150px;
+			width: 150px;
+		}
+	}
+
+	& > .info {
+		display: grid;
+		grid-row-gap: 7px;
+		align-items: center;
+
+		& > .address {
+			white-space: pre-line;
+		}
+
+		& > .name {
+			font-size: 30px;
+			line-height: 1.3;
+			@extend %overflow;
+			color: var(--accent-color);
+		}
+
+		& > .field {
+			font-size: 18px;
+			line-height: 1.4;
+			color: var(--text-color);
+			@extend %overflow;
+		}
+	}
+
+	& > .buttons {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		align-items: flex-end;
+
+		& > .change-buttons {
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+			align-items: flex-end;
+			height: 110px;
+
+			& > .button {
+				@extend %btn;
+
+				& > .icon,
+				& > .settings-icon {
+					height: 32px;
+					width: 32px;
+				}
+
+				&:hover {
+					& > .icon path {
+						fill: var(--hover-color);
+					}
+
+					& > .settings-icon path {
+						stroke: var(--hover-color);
+					}
+				}
+			}
+
+			& > .active > .settings-icon path {
+				stroke: var(--active-color);
+			}
+		}
+
+		& > .delete-button {
+			& > .button {
+				@extend %btn;
+				color: var(--red-color);
+			}
+		}
+	}
+}
+@media (max-width: $tablet) {
+	.account-item {
+		& > .info {
+			& > .name {
+				font-size: 26px;
+				line-height: 30px;
+			}
+			& > .field {
+				font-size: 16px;
+				line-height: 19px;
+			}
+		}
+		& > .buttons {
+			& > .delete-button {
+				& > .button {
+					font-size: 22px;
+					line-height: 26px;
+				}
+			}
+			& > .change-buttons {
+				& > .button {
+					& > .icon,
+					& > .settings-icon {
+						height: 29px;
+						width: 29px;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: $mobile) {
+	.account-item {
+		grid-template-columns: max-content 1fr;
+		height: fit-content;
+		padding: 12px 10px;
+		& > .photo {
+			width: 133px;
+			height: 133px;
+			grid-column: 1/2;
+		}
+		& > .info {
+			grid-column: 1/3;
+			grid-row: 2/3;
+			& > .name {
+        font-size: 16px;
+line-height: 19px;
+			}
+			& > .field {
+        font-size: 12px;
+line-height: 14px;
+			}
+		}
+		& > .buttons {
+			grid-column: 2/3;
+
+
+			& > .change-buttons {
+				height: 90px;
+				& > .button {
+					& > .icon,
+					& > .settings-icon {
+						width: 26px;
+						height: 26px;
+					}
+				}
+			}
+			& > .delete-button {
+				& > .button {
+					font-size: 14px;
+					line-height: 16px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,388 @@
+@import '../../../styles/mixins';
+
+.tenancy-card {
+  background: var(--card-color);
+  padding: 0 25px 25px;
+
+  & > .btn-container {
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--bold-line-color);
+    border-top: 1px solid var(--bold-line-color);
+
+    & > .button {
+      display: grid;
+      grid-column-gap: 5px;
+      grid-column: max-content;
+      grid-template-areas: 'icon text';
+      background: var(--card-color);
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 200px;
+      cursor: pointer;
+
+      & > .icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      svg path {
+        fill: var(--text-color);
+      }
+
+      & > .text {
+        font-size: 20px;
+        color: var(--text-color);
+      }
+
+      &.active {
+        svg path {
+          fill: var(--active-color);
+        }
+
+        & > .text {
+          color: var(--active-color);
+        }
+      }
+    }
+  }
+
+  & > .card {
+    display: grid;
+    overflow-y: auto;
+    grid-template-areas: 'info time' 'info sum' 'info confirm';
+    grid-auto-columns: 175px 1fr;
+    grid-template-rows: 80px 50px 50px;
+    border-bottom: 1px solid var(--bold-line-color);
+    height: calc(100vh - 610px);
+    padding: 25px 0;
+    grid-gap: 25px;
+
+    & > .info {
+      grid-area: info;
+      display: grid;
+      grid-template-rows: 175px 1fr;
+      grid-auto-columns: 175px;
+
+      & > .photo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 175px;
+        width: 175px;
+        overflow: hidden;
+
+        &.plug {
+          background: var(--avatar-color);
+          padding: 34px;
+        }
+
+        & > .image {
+          height: 175px;
+          width: 175px;
+        }
+      }
+
+      & > .name-container {
+        padding-top: 12px;
+
+        & > .name {
+          line-height: 1.4;
+          font-size: 20px;
+          font-weight: 300;
+          margin-bottom: 10px;
+          @extend %overflow;
+        }
+
+        & > .email {
+          line-height: 1.4;
+          font-size: 14px;
+          @extend %overflow;
+        }
+      }
+    }
+
+    & > .time {
+      grid-area: time;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 5px;
+
+      & > .period-container {
+        display: grid;
+        grid-template-columns: 170px 1fr;
+
+        & > .title {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          & > .text {
+            font-size: 24px;
+            color: var(--accent-color);
+          }
+        }
+
+        & > .value {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        &:first-child,
+        &:last-child {
+          grid-template-columns: 60px 1fr;
+        }
+      }
+    }
+
+    & > .sum {
+      grid-area: sum;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+
+      & > .amount,
+      & > .period {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        & > .title {
+          font-size: 18px;
+          color: var(--accent-color);
+          margin-right: 10px;
+        }
+
+        & > .value {
+          display: flex;
+          align-items: center;
+
+          & > .icon {
+            height: 20px;
+          }
+
+          & > .input {
+            @extend %input;
+            background: transparent;
+            border-bottom: 1px solid var(--line-color);
+            font-size: 20px;
+            width: 100px;
+          }
+
+          select {
+            background: transparent;
+            appearance: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            line-height: 1;
+          }
+
+          option {
+            background: var(--card-color);
+          }
+        }
+      }
+    }
+
+    & > .confirm {
+      grid-area: confirm;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      width: 100%;
+
+      & > .button {
+        @extend %btn;
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .tenancy-card {
+    padding-bottom: 0;
+
+    & > .card {
+      overflow: hidden;
+      border-bottom: none;
+
+      & > .info {
+        & > .photo {
+          width: 136px;
+          height: 136px;
+
+          &.plug {
+            margin: 0;
+          }
+        }
+
+        & > .name-container {
+          & > .name {
+            font-size: 18px;
+            line-height: 21px;
+            font-weight: 300;
+          }
+
+          & > .email {
+            font-size: 12px;
+            line-height: 14px;
+          }
+        }
+      }
+
+      & > .sum {
+        & > .amount,
+        & > .period {
+          & > .title {
+            font-size: 16px;
+          }
+        }
+      }
+
+      & > .time {
+        & > .period-container {
+          & > .title {
+            & > .text {
+              font-size: 16px;
+              line-height: 19px;
+            }
+          }
+        }
+      }
+
+      & > .confirm {
+        & > .button {
+          font-size: 22px;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .tenancy-card {
+    min-height: auto;
+    padding: 0 15px 15px;
+
+    & > .card {
+      grid-template-columns: 57px 1fr 1fr;
+      grid-template-rows:  max-content max-content;
+      grid-column-gap: 9px;
+      grid-template-areas: 'info time sum' 'info . confirm';
+      height: auto;
+
+      & > .info {
+        grid-template-rows: 77px max-content;
+
+        & > .photo {
+          width: 57px;
+          height: 57px;
+
+          &.plug {
+            margin: 0;
+            padding: 0;
+
+            .image {
+              width: auto;
+              height: auto;
+              padding: 15px;
+            }
+          }
+
+        }
+
+        & > .name-container {
+          & > .name {
+            font-size: 8px;
+            line-height: 9px;
+          }
+
+          & > .email {
+            font-size: 6px;
+            line-height: 7px;
+          }
+        }
+      }
+
+      & > .time {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, max-content);
+        grid-row-gap: 11px;
+
+        & > .period-container {
+          grid-template-columns: 38px max-content !important;
+          grid-column-gap: 5px;
+
+          &:nth-child(2) {
+            order: 3;
+          }
+
+          &:nth-child(3) {
+            order: 2;
+          }
+
+          & > .title {
+            & > .text {
+              font-size: 8px;
+              line-height: 9px;
+            }
+          }
+        }
+      }
+
+      & > .confirm {
+        & > .button {
+          font-size: 10px;
+          line-height: 12px;
+        }
+      }
+
+      & > .sum {
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content;
+        grid-row-gap: 11px;
+
+        & > .period,
+        & > .amount {
+          & > .title {
+            font-size: 8px;
+            line-height: 9px;
+            width: 40px;
+          }
+        }
+
+        & > .amount {
+          & > .value {
+            & .input {
+              font-size: 8px;
+              line-height: 9px;
+              width: 100%;
+            }
+
+            & > .icon {
+              height: 8px;
+              width: 6px;
+              margin-right: 2px;
+            }
+          }
+        }
+
+        & > .period {
+          & > .value {
+            & > select {
+              font-size: 8px;
+              line-height: 9px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

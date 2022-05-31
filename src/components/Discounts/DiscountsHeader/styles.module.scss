@@ -1,0 +1,167 @@
+@import 'src/styles/mixins';
+
+.discounts-header {
+	display: grid;
+	grid-template-columns: max-content;
+	grid-template-areas: 'total ';
+	grid-template-rows: min-content;
+	position: relative;
+
+	& > .total,
+	& > .payments,
+	& > .transactions,
+	& > .date,
+	& > .date-ico {
+		min-width: 90px;
+		font-size: 18px;
+		line-height: 16px;
+		@extend %btn;
+
+		& > .text {
+			line-height: 44px;
+		}
+
+		& > svg {
+			display: none;
+		}
+
+		&:hover {
+			& > .text {
+				color: var(--hover-color);
+			}
+		}
+	}
+
+	& > .total,
+	& > .payments,
+	& > .transactions,
+	& > .date-ico {
+		padding: 12px;
+		position: relative;
+		text-align: center;
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			background: var(--active-color);
+			bottom: 0;
+			left: 0;
+			transition: height 0.3s ease;
+		}
+
+		&:hover {
+			path {
+				stroke: var(--hover-color);
+			}
+		}
+
+		&.active {
+			&:after {
+				height: 2px;
+			}
+
+			& > .text {
+				color: var(--active-color) !important;
+				font-weight: $font-normal;
+
+				&:after {
+					height: 2px;
+				}
+			}
+
+			&.active {
+				path {
+					stroke: var(--active-color);
+				}
+				fill: var(--active-color);
+			}
+		}
+	}
+	.transactions {
+		svg {
+			fill: #989898;
+		}
+		&.active svg {
+			fill: var(--active-color);
+		}
+	}
+
+	& > .total {
+		grid-area: total;
+	}
+
+	& > .payments {
+		grid-area: payments;
+	}
+
+	& > .transactions {
+		grid-area: transactions;
+	}
+
+	& > .download {
+		grid-area: download;
+		@extend %btn;
+		font-size: 18px;
+		line-height: 21px;
+		color: var(--passive-color);
+		padding: 12px;
+
+		& > svg {
+			display: none;
+		}
+	}
+
+	& > .go-back {
+		grid-area: back;
+		justify-self: flex-start;
+		margin-top: 18px;
+		position: absolute;
+		bottom: 0;
+		left: -26px;
+		transform: translate(-100%, -25%);
+	}
+}
+
+@media screen and (max-width: $tablet) {
+	.dashboard-header {
+		grid-template-areas: 'total payments transactions . date-ico download' 'back . . . . .';
+
+		& > .go-back {
+			position: static;
+			transform: translate(0);
+		}
+
+		& > .total,
+		& > .payments,
+		& > .download,
+		& > .transactions,
+		& > .date-ico {
+			min-width: unset;
+
+			& > .text {
+				display: none;
+			}
+
+			& > svg {
+				display: block;
+				width: 24px;
+				height: 24px;
+			}
+		}
+
+		& > .date {
+			display: none;
+		}
+	}
+}
+@media screen and (max-width: $mobile) {
+	.dashboard-header {
+		& > .go-back {
+			position: fixed;
+			height: 30px;
+			top: 50px;
+			left: 25px;
+		}
+	}
+}

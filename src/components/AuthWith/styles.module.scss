@@ -1,0 +1,40 @@
+@import 'src/styles/mixins';
+
+.social {
+	display: grid;
+	grid-template-columns: repeat(4, max-content);
+	grid-gap: 15px;
+	align-items: center;
+	margin: auto;
+	font-size: 18px;
+	color: #575757;
+	svg {
+		height: 40px;
+		width: auto;
+	}
+
+	& > .icon {
+		cursor: pointer;
+	}
+
+	& > .fb {
+		cursor: pointer;
+		height: 40px;
+		width: 40px;
+	}
+}
+
+@media (max-width: $mobile) {
+	.social {
+		grid-column-gap: 15px;
+
+		& svg {
+			width: 32px;
+			height: 32px;
+		}
+
+		& > .text {
+			font-size: 18px;
+		}
+	}
+}

@@ -1,0 +1,218 @@
+@import 'src/styles/mixins';
+
+.new-transaction {
+  background: var(--card-color);
+
+  & > .header {
+    height: 70px;
+    padding: 10px;
+    border-bottom: 1px solid var(--bold-line-color);
+    margin: 0 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    & > .label {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: var(--active-color);
+      font-size: 20px;
+
+      & > .icon {
+        margin-right: 5px;
+
+        & > path {
+          fill: var(--active-color);
+        }
+      }
+    }
+  }
+
+  & > .body {
+    height: 185px;
+    display: grid;
+    grid-template-areas: 'info ref' 'buttons buttons';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 1fr;
+    padding: 15px 25px;
+    grid-gap: 25px;
+
+    & > .info {
+      grid-area: info;
+      padding-left: 25px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      & > .info-container {
+        margin-top: 15px;
+        display: flex;
+        align-items: baseline;
+
+
+        & > .info-input {
+          @extend %input;
+          color: var(--passive-color);
+          width: calc(100% - 30px);
+          max-width: max-content;
+          display: flex;
+          align-items: flex-end;
+
+          & > .icon {
+            height: 20px;
+            width: 20px;
+            margin-right: 5px;
+          }
+
+        }
+      }
+
+      & > .date-container {
+        & > .title {
+          margin-bottom: 5px;
+          font-size: 14px;
+          color: var(--active-color)
+        }
+      }
+    }
+
+    & > .ref {
+      grid-area: ref;
+
+      & > .ref-container {
+        margin-top: 15px;
+        display: flex;
+        align-items: baseline;
+
+        & > .ref-input {
+          @extend %input;
+          color: var(--passive-color);
+          width: calc(100% - 30px);
+          max-width: max-content;
+        }
+      }
+    }
+
+    & > .buttons {
+      grid-area: buttons;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      & > .button {
+        @extend %btn;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .new-transaction {
+    padding: 0 12px;
+
+    & > .header {
+      margin: 0;
+      height: 40px;
+      padding: 10px;
+      border-bottom: 1px solid var(--bold-line-color);
+
+      & > .label {
+        font-size: 10px;
+
+        & > .icon {
+          width: 14px;
+          height: auto;
+        }
+      }
+    }
+
+    & > .body {
+      min-height: 120px;
+      height: auto;
+      padding: 15px 10px 0;
+      grid-template-rows: 50px 1fr;
+      grid-gap: 10px;
+
+      & > .info {
+        padding-left: 0;
+
+        & > .info-container {
+          margin-top: 0;
+
+          & > .info-input {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            font-size: 8px;
+
+            label {
+              position: static;
+              order: -1;
+              white-space: nowrap;
+              font-size: 8px !important;
+            }
+
+            input {
+              width: 100%;
+            }
+
+            & > .icon {
+              height: 12px;
+            }
+          }
+        }
+
+        & > .date-container {
+          display: flex;
+          align-items: center;
+
+          & > .title {
+            margin-bottom: 0;
+            font-size: 8px;
+          }
+
+          > * {
+            font-size: 8px !important;
+          }
+        }
+      }
+
+      & > .ref {
+        & > .ref-container {
+          margin-top: 0;
+          display: flex;
+          align-items: baseline;
+
+          & > .ref-input {
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: nowrap;
+            font-size: 8px;
+
+            label {
+              position: static;
+              white-space: nowrap;
+              font-size: 8px !important;
+              margin-right: 5px;
+            }
+
+            input {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      & > .buttons {
+        align-items: flex-end;
+        & > .button {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,99 @@
+@import 'src/styles/mixins';
+
+.address {
+  & > .title {
+    color: var(--active-color);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 300;
+  }
+
+	& > .postcode-input {
+		display: grid;
+		//grid-template-areas: 'first first' 'second third';
+		grid-template-columns: 1fr max-content;
+		max-width: 335px;
+		width: 100%;
+
+		//& > .first {
+		//	grid-area: first;
+
+			& > .input {
+				background: transparent;
+				border-bottom: 1px solid var(--line-color);
+				width: 250px;
+				@extend %overflow;
+			}
+		//}
+
+		//& > .second {
+		//	grid-area: second;
+		//	background: transparent;
+		//	border-bottom: 1px solid var(--line-color);
+		//	width: 122px;
+		//}
+		//
+		//& > .third {
+		//	grid-area: third;
+		//	color: var(--text-color);
+		//}
+		//
+		//& > .code-input {
+		//	background: transparent;
+		//	border-bottom: 1px solid var(--line-color);
+		//	color: var(--text-color);
+		//	width: 122px;
+		//}
+
+		& > .find {
+			@extend %btn;
+			font-size: 16px;
+			border: none;
+			padding: 0 10px
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	.address {
+		& > .title {
+			font-size: 10px;
+			line-height: 1.4;
+			margin-bottom: 10px;
+		}
+
+		& > .postcode-input {
+			.input, .find {
+				font-weight: 300;
+				font-size: 10px;
+				line-height: 1.4;
+				width: 100%;
+			}
+		}
+
+		& > .address-input {
+			width: 100%;
+			grid-column-gap: 10px;
+			& > .first {
+				margin-bottom: 10px;
+				& > .input {
+					width: 100%;
+					font-size: 10px;
+					line-height: 1.4;
+				}
+			}
+
+			& > .second {
+				font-size: 10px;
+				line-height: 1.4;
+				width: 100%;
+			}
+
+			& > .third {
+				font-size: 10px;
+				line-height: 1.4;
+				width: 100%;
+			}
+		}
+	}
+}

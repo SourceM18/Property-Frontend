@@ -1,0 +1,47 @@
+@import 'src/styles/mixins';
+
+.list-container {
+  background: var(--card-color);
+  height: calc(100vh - 680px);
+  padding: 0 25px 25px;
+
+  & > .address-list {
+    height: 100%;
+    overflow-y: auto;
+    border-bottom: 1px solid var(--bold-line-color);
+    border-top: 1px solid var(--bold-line-color);
+
+    & > .address-item {
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      border-bottom: 1px solid var(--line-color);
+      height: 50px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  }
+}
+@media (max-width: $tablet) {
+  .list-container {
+    height: calc(100vh - 700px);
+    & > .address-list {
+      height: calc(100vh - 700px);
+
+    }
+  }
+}
+@media (max-width: $mobile) {
+  .list-container {
+    height: calc(100vh - 400px);
+    padding: 0 10px 10px;
+    & > .address-list {
+      height: calc(100vh - 400px);
+
+      & > .address-item {
+               font-size: 10px;
+               height: 28px;
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@import 'src/styles/mixins';
+
+.transaction-property-list {
+  height: calc(100vh - 300px);
+  overflow-y: auto;
+}

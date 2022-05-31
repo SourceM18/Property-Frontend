@@ -1,0 +1,208 @@
+@import 'src/styles/mixins';
+
+.account-edit {
+  background: var(--card-color);
+  width: 100%;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  grid-gap: 25px;
+  overflow: auto;
+
+  & > .fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    height: fit-content;
+    // height: 170px;
+
+    & > .field {
+      @extend %input;
+      min-width: 122px !important;
+      margin-bottom: 35px;
+
+      & input {
+        width: 100%;
+        max-width: 335px;
+      }
+
+      & > label {
+        font-size: 12px !important;
+        line-height: 14px !important;
+        text-transform: capitalize;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        margin-top: 15px;
+      }
+
+      &:nth-child(6) {
+        margin-top: -15px;
+      }
+    }
+  }
+
+  & > .buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
+
+    & > .change-buttons {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: flex-end;
+      height: 110px;
+
+      & > .button {
+        @extend %btn;
+
+        & > .icon,
+        & > .settings-icon {
+          height: 32px;
+          width: 32px;
+        }
+
+        &:hover {
+          & > .icon path {
+            fill: var(--hover-color);
+          }
+
+          & > .settings-icon path {
+            stroke: var(--hover-color);
+          }
+        }
+      }
+
+      & > .active {
+        & > .icon path {
+          fill: var(--active-color);
+        }
+      }
+    }
+
+    & > .save-button {
+      & > .button {
+        @extend %btn;
+      }
+    }
+  }
+
+  .buttons-mobile {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      background: transparent;
+    }
+
+    .buttonSave {
+      position: relative;
+      right: -50px;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .account-edit {
+    & > .fields {
+      grid-template-columns: 1fr 1.3fr;
+
+      & > .field {
+        margin-bottom: 50px;
+
+        & > input {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+    }
+
+    & > .buttons {
+      position: relative;
+
+      & > .save-button {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 127px;
+
+        & > .button {
+          font-size: 20px;
+          line-height: 23px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .account-edit {
+    grid-template-columns: 1fr max-content;
+    height: fit-content;
+    position: relative;
+    padding: 15px;
+
+    & > label {
+      div {
+        width: 120px !important;
+        height: 120px !important;
+      }
+    }
+
+    button {
+      background: transparent;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    & > .buttons {
+      position: unset;
+
+      & > .buttonBack {
+        position: absolute;
+        left: 15px;
+        bottom: 15px;
+      }
+
+      & > .buttonSave {
+        position: absolute;
+        bottom: 15px;
+      }
+
+      & > .button {
+        & > .icon,
+        & > .settings-icon {
+          height: 26px;
+          width: 26px;
+        }
+      }
+
+      & > .active {
+        & > .icon path {
+          fill: var(--active-color);
+        }
+      }
+    }
+
+    & > .fields {
+      display: flex;
+      margin: 10px 0;
+      flex-direction: column;
+
+      & > .field {
+        margin-bottom: 30px;
+        margin-top: 10px !important;
+        font-size: 12px;
+        line-height: 14px;
+
+        & > input {
+          font-size: 12px;
+          line-height: 14px;
+        }
+      }
+    }
+  }
+}

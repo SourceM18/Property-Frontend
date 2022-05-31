@@ -1,0 +1,12 @@
+@import '../../../styles/mixins';
+
+.tenants {
+	display: grid;
+	grid-row-gap: 20px;
+}
+
+@media (max-width: $mobile) {
+	.tenants {
+		grid-row-gap: 10px;
+	}
+}

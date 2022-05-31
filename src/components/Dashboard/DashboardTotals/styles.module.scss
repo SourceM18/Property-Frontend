@@ -1,0 +1,12 @@
+@import 'src/styles/mixins';
+
+.total-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+}
+@media (max-width: $mobile) {
+  .total-container {
+    grid-gap: 7px 13px;
+  }
+}

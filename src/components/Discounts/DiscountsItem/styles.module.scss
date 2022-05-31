@@ -1,0 +1,40 @@
+@import 'src/styles/mixins';
+
+.discounts-item {
+  height: 80px;
+  display: grid;
+  grid-template-areas: 'discount code balance dates description remove';
+  grid-template-columns: repeat(6, 1fr);
+  border-top: 1px solid var(--line-color);
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+
+  & > .discount {
+    grid-area: discount;
+  }
+
+  & > .code {
+    grid-area: code;
+  }
+
+  & > .balance {
+    grid-area: balance;
+  }
+
+  & > .dates {
+    grid-area: dates;
+  }
+
+  & > .description {
+    grid-area: description;
+  }
+
+  & > .remove {
+    grid-area: remove;
+
+    & > .btn {
+      background: transparent;
+    }
+  }
+}

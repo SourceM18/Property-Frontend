@@ -1,0 +1,32 @@
+@import 'src/styles/mixins';
+
+.balance {
+  background: var(--card-color);
+  padding: 15px;
+
+  & > .table {
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+
+    & > .header {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-bottom: 1px solid var(--bold-line-color);
+      text-align: center;
+      font-size: 16px;
+
+      & > .title {
+        display: flex;
+        line-height: 23px;
+        justify-content: center;
+        align-content: center;
+        padding: 10px;
+
+        &:last-child {
+          line-height: 40px;
+        }
+      }
+    }
+  }
+}

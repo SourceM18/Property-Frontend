@@ -1,0 +1,53 @@
+@import 'src/styles/mixins';
+
+.title {
+  & > .input {
+    display: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: transparent;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  & > .open {
+    @extend %btn;
+    font-size: 20px;
+    color: var(--text-color);
+  }
+
+  & > .text {
+    display: none;
+    width: 100%;
+    height: 100%;
+
+
+    &.active {
+      display: block;
+      text-align: right;
+      & > svg {
+        margin-left: 8px;
+      }
+
+    }
+  }
+}
+
+.trigger {
+  cursor: pointer;
+}
+
+.arrearsDays {
+  color: var(--green-color);
+
+  &.yellow {
+    color: var(--orange-color);
+  }
+
+  &.red {
+    color: var(--red-color);
+  }
+}

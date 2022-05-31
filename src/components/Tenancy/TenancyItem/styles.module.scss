@@ -1,0 +1,145 @@
+@import '../../../styles/mixins';
+
+.tenancy {
+	height: 70px;
+	display: grid;
+	cursor: pointer;
+	grid-template-columns: 1fr 160px 140px 40px;
+	border-bottom: 1px solid var(--line-color);
+	grid-gap: 10px;
+	padding: 10px;
+
+	&:last-child{
+		border: none;
+	}
+
+	& > .information {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		white-space: nowrap;
+		width: 100%;
+		overflow: hidden;
+
+		& > .name {
+			font-size: 20px;
+			line-height: 1.3;
+			text-transform: capitalize;
+			@extend %overflow;
+
+			& > .surname {
+				font-weight: bold;
+			}
+		}
+
+		& > .email {
+			font-size: 14px;
+			line-height: 1.4;
+			@extend %overflow;
+		}
+	}
+
+	& > .from,
+	& > .to {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		width: 150px;
+
+		& > .title {
+			color: var(--accent-color);
+			font-size: 18px;
+		}
+
+		& > .text {
+			font-size: 18px;
+		}
+	}
+
+	& > .to {
+		width: 125px;
+	}
+
+	& > .trash {
+		display: flex;
+		width: 50px;
+		align-items: center;
+		justify-content: center;
+
+		& > .button {
+			@extend %btn;
+		}
+	}
+}
+@media (max-width: $tablet) {
+	.tenancy {
+		grid-template-columns: 1fr 140px 130px max-content;
+		& > .from,
+		& > .to {
+			justify-content: start;
+			width: unset;
+			& > .title {
+				font-size: 14px;
+				margin-right: 10px;
+			}
+
+			& > .text {
+				font-size: 16px;
+			}
+		}
+	}
+}
+@media (max-width: $mobile) {
+	.tenancy {
+		grid-template-columns: 1fr 50px 50px max-content;
+		align-items: center;
+		height: 47px;
+
+		& > .information {
+			overflow: hidden;
+			& > .name {
+				font-size: 10px;
+				line-height: 12px;
+				text-transform: capitalize;
+
+				& > .surname {
+					font-weight: bold;
+				}
+			}
+
+			& > .email {
+				font-size: 8px;
+				line-height: 9px;
+			}
+		}
+		& > .from,
+		& > .to {
+			flex-direction: column;
+			justify-content: start;
+			width: unset;
+			& > .title {
+				font-size: 8px;
+				line-height: 9px;
+				margin-bottom: 5px;
+				margin-right: 0;
+			}
+
+			& > .text {
+				font-size: 8px;
+				line-height: 9px;
+			}
+		}
+		& > .trash {
+			width: fit-content;
+
+			& > .button {
+				& > svg {
+					width: 17px;
+					height: 17px;
+				}
+			}
+		}
+	}
+}

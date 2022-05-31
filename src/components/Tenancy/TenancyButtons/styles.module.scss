@@ -1,0 +1,86 @@
+@import '../../../styles/mixins';
+
+.buttons {
+  display: flex;
+  min-height: 70px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--bold-line-color);
+  border-top: 1px solid var(--bold-line-color);
+  padding: 0 10px;
+
+  & > .button {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-column: max-content;
+    grid-template-areas: 'icon text';
+    background: var(--card-color);
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+
+    & > .icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    svg path {
+      fill: var(--text-color);
+    }
+
+    & > .text {
+      font-size: 20px;
+      color: var(--text-color);
+    }
+
+    &.active {
+      svg path {
+        fill: var(--active-color);
+      }
+
+      & > .text {
+        color: var(--active-color);
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .buttons {
+    min-height: 60px;
+    border-bottom: 1px solid var(--bold-line-color);
+
+    & > .button {
+      width: fit-content;
+
+      & > .icon {
+        width: 26px;
+        height: 26px;
+      }
+
+      & > .text {
+        font-size: 16px;
+        color: var(--text-color);
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .buttons {
+    min-height: 40px;
+
+    & > .button {
+      & > .icon {
+        width: 14px;
+        height: 14px;
+      }
+
+      & > .text {
+        font-size: 10px;
+        color: var(--text-color);
+      }
+    }
+  }
+}
